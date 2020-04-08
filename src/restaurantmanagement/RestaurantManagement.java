@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/*
+* Description: This application will help manage a restaurant with many functions
+*
+*/
 package restaurantmanagement;
 
 import javafx.application.Application;
