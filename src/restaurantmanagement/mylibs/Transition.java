@@ -10,6 +10,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
@@ -17,12 +18,32 @@ import javafx.util.Duration;
  * @author KevinHa
  */
 public class Transition {
-    ArrayList<AnchorPane> pane_list = new ArrayList<>();
+    public ArrayList<AnchorPane> pane_list = new ArrayList<>();
+    ArrayList<Label> title_list = new ArrayList<>();
     int PaneID = 0;
     double Width = 0;
     
     public void TransitionAddPane(AnchorPane pane){
         pane_list.add(pane);
+    }
+    public void TransitionAddTitlePage(String pageTitle){
+        Label _title = new Label();
+        //_title.getStyleClass().add("SetupWizard_Left_Menu_Label");
+        _title.setText((title_list.size() + 1)+". "+pageTitle);
+        title_list.add(_title);
+    }
+    public void TransitionAddTitlePageComplete(VBox vbox){
+        for(int i = 0; i < title_list.size();i++){
+            vbox.getChildren().add(title_list.get(i));
+        }
+        TransitionAddTitlePageHighlight(PaneID);
+    }
+    public void TransitionAddTitlePageHighlight(int PageID){
+        for(int i = 0; i < pane_list.size();i++){
+            title_list.get(i).getStyleClass().clear();
+            title_list.get(i).getStyleClass().add("SetupWizard_Left_Menu_Label");
+        }
+        title_list.get(PageID).getStyleClass().add("SetupWizard_Left_Menu_Label_Highlight");
     }
     
     public void TransitionSetup(){
@@ -31,7 +52,7 @@ public class Transition {
                 pane_list.get(i).setOpacity(1);
                 pane_list.get(i).setTranslateX(0);
             }else{
-                pane_list.get(i).setOpacity(0);
+                //pane_list.get(i).setOpacity(0);
                 pane_list.get(i).setTranslateX(600);
             }
         }
@@ -77,6 +98,9 @@ public class Transition {
                 currentft.play();
             }
         }
+        
+        // Hight Light
+        TransitionAddTitlePageHighlight(PaneID);
     }
     public void PanelTransitionBackSlideFade(){
         if(PaneID > 0){
@@ -109,6 +133,8 @@ public class Transition {
                 currentft.play();
             }
         }
+        // Hight Light
+        TransitionAddTitlePageHighlight(PaneID);
     }
     // Transition Slide & Fade --------------->>>>>>>>>>>>>>>>>>>>>>>>>
     public void PanelTransitionNextSlide(){
@@ -128,7 +154,8 @@ public class Transition {
                 currentp.play();
             }
         }
-
+        // Hight Light
+        TransitionAddTitlePageHighlight(PaneID);
     }
     public void PanelTransitionBackSlide(){
         if(PaneID > 0){
@@ -147,5 +174,7 @@ public class Transition {
             }
 
         }
+        // Hight Light
+        TransitionAddTitlePageHighlight(PaneID);
     }
 }

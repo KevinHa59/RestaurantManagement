@@ -12,12 +12,14 @@ import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import restaurantmanagement.mylibs.Transition;
 
@@ -85,6 +87,28 @@ public class SetupController implements Initializable {
      */
     
     Transition trans;
+    @FXML
+    private VBox VBox_TitlePage;
+    @FXML
+    private Label lbl_restName;
+    @FXML
+    private Label lbl_restAddress;
+    @FXML
+    private Label lbl_restEmail;
+    @FXML
+    private Label lbl_restPhone;
+    @FXML
+    private Label lbl_restCountryFood;
+    @FXML
+    private Label lbl_restTableQuan;
+    @FXML
+    private Label lbl_ManagerName;
+    @FXML
+    private Label lbl_ManagerEmail;
+    @FXML
+    private Label lbl_ManagerPhone;
+    @FXML
+    private AnchorPane pane_Review;
     
     
     @Override
@@ -93,7 +117,7 @@ public class SetupController implements Initializable {
         trans = new Transition();
         PaneSetup();
         trans.TransitionSetup();
-        trans.TransitionSetWidth(root.getPrefWidth());
+        trans.TransitionSetWidth(460);
         
         
     }    
@@ -106,17 +130,55 @@ public class SetupController implements Initializable {
         trans.TransitionAddPane(pane_RestaurantMoreInfo_4);
         trans.TransitionAddPane(pane_ManagerInforamtion_5);
         trans.TransitionAddPane(pane_ManagerAccount_6);
+        trans.TransitionAddPane(pane_Review);
+        
+        trans.TransitionAddTitlePage("Restaurant Name");
+        trans.TransitionAddTitlePage("Restaurant Address");
+        trans.TransitionAddTitlePage("Restaurant Contact");
+        trans.TransitionAddTitlePage("Restaurant More Info");
+        trans.TransitionAddTitlePage("Manager Info");
+        trans.TransitionAddTitlePage("Manager Account");
+        trans.TransitionAddTitlePage("Review Information");
+        
+        trans.TransitionAddTitlePageComplete(VBox_TitlePage);
+    }
+    
+    // Final Review
+    void Review(){
+        lbl_restName.setText(txt_restName.getText());
+        lbl_restAddress.setText(txt_restAddressStreet.getText() + ", " + txt_restAddressCity.getText()+", " + txt_restAddressState.getText() + " " + txt_restAddressZip.getText());
+        lbl_restEmail.setText(txt_restContactEmail.getText());
+        lbl_restPhone.setText(PhoneFormat(txt_restContactPhone.getText()));
+        lbl_restCountryFood.setText(txt_restContactCountry.getText());
+        lbl_restTableQuan.setText(txt_restContactTable.getText());
+        lbl_ManagerName.setText(txt_ManagerFirstname.getText() + " " + txt_ManagerLastname.getText());
+        lbl_ManagerEmail.setText(txt_ManagerEmail.getText());
+        lbl_ManagerPhone.setText(PhoneFormat(txt_ManagerPhone.getText()));
+        
+    }
+    String PhoneFormat(String phone){
+        String _phone = "";
+        if(!phone.equals("")){
+        _phone = "(" + phone.charAt(0)+phone.charAt(1)+phone.charAt(2)+") " + phone.charAt(3)+phone.charAt(4)+phone.charAt(5)+ "-" +phone.charAt(6)+phone.charAt(7)+phone.charAt(8)+phone.charAt(9);
+        }
+        return _phone;
     }
     @FXML
     private void OnNextClicked(MouseEvent event) {
-        trans.PanelTransitionNextSlideFade();
+        trans.PanelTransitionNextSlide();
         trans.PanelTransitionPageUpdate(lbl_page);
+        Review();
     }
 
     @FXML
     private void OnBackClicked(MouseEvent event) {
-        trans.PanelTransitionBackSlideFade();
+        trans.PanelTransitionBackSlide();
         trans.PanelTransitionPageUpdate(lbl_page);
+    }
+
+    @FXML
+    private void OnExitClicked(MouseEvent event) {
+        ((Node)event.getSource()).getScene().getWindow().hide();
     }
     
 }
