@@ -8,12 +8,18 @@ package restaurantmanagement.InitialSetup;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+import restaurantmanagement.mylibs.Transition;
 
 /**
  * FXML Controller class
@@ -70,50 +76,47 @@ public class SetupController implements Initializable {
     private PasswordField txt_ManagerPin;
     @FXML
     private PasswordField txt_ManagerConfirmPin;
+    @FXML
+    private AnchorPane root;
+    @FXML
+    private Label lbl_page;
     /**
      * Initializes the controller class.
      */
     
-    ArrayList<AnchorPane> pane_list;
-    int PaneID = 0;
+    Transition trans;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        trans = new Transition();
         PaneSetup();
+        trans.TransitionSetup();
+        trans.TransitionSetWidth(root.getPrefWidth());
+        
+        
     }    
 
     // Pane Setup
     void PaneSetup(){
-        pane_list = new ArrayList<>();
-        pane_list.add(pane_RestaurantName_1);
-        pane_list.add(pane_RestaurantAddress_2);
-        pane_list.add(pane_RestaurantContact_3);
-        pane_list.add(pane_RestaurantMoreInfo_4);
-        pane_list.add(pane_ManagerInforamtion_5);
-        pane_list.add(pane_ManagerAccount_6);
-        pane_list.get(PaneID).setVisible(true);
-    }
-    void SwitchPane(int PaneID){
-        for(int i = 0;i < pane_list.size();i++){
-            pane_list.get(i).setVisible(false);
-        }
-        pane_list.get(PaneID).setVisible(true);
+        trans.TransitionAddPane(pane_RestaurantName_1);
+        trans.TransitionAddPane(pane_RestaurantAddress_2);
+        trans.TransitionAddPane(pane_RestaurantContact_3);
+        trans.TransitionAddPane(pane_RestaurantMoreInfo_4);
+        trans.TransitionAddPane(pane_ManagerInforamtion_5);
+        trans.TransitionAddPane(pane_ManagerAccount_6);
     }
     @FXML
     private void OnNextClicked(MouseEvent event) {
-        if(PaneID < pane_list.size()-1){
-            PaneID+=1;
-            SwitchPane(PaneID);
-        }
+        trans.PanelTransitionNextSlideFade();
+        trans.PanelTransitionPageUpdate(lbl_page);
     }
 
     @FXML
     private void OnBackClicked(MouseEvent event) {
-        if(PaneID > 0){
-            PaneID-=1;
-            SwitchPane(PaneID);
-        }
+        trans.PanelTransitionBackSlideFade();
+        trans.PanelTransitionPageUpdate(lbl_page);
     }
     
 }

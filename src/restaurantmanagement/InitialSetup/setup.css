@@ -6,10 +6,10 @@
     
 }
 .SetupWizard{
-    -fx-background-color: #77daff;
+    -fx-background-color: #4c4a48;
 }
 .SetupWizard_Title{
-    -fx-text-fill: #234a58;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 30;
     
@@ -21,21 +21,21 @@
     
 }
 .SetupWizard_TextField{
-    -fx-background-color: #c6efff;
-    -fx-background-radius: 25;
+    -fx-background-color: transparent;
     -fx-border-color: #234a58;
-    -fx-border-width: 0 0 0 0;
-    -fx-border-radius: 25;
-    
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 20;
+    -fx-alignment: CENTER;
 }
 .SetupWizard_Button{
-    -fx-background-color: #17313b;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 30;
-    -fx-text-fill: #c6efff;
+    -fx-text-fill: #234a58;
     -fx-font-size: 30;
     -fx-font-weight: bold;
 }
 .SetupWizard_container{
-    -fx-background-color: #77daff;
-    -fx-background-radius: 10;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
+    
 }

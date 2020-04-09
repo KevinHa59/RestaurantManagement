@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" styleClass="SetupWizard" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="restaurantmanagement.InitialSetup.SetupController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="800.0" prefWidth="600.0" styleClass="SetupWizard" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="restaurantmanagement.InitialSetup.SetupController">
     <stylesheets>
         <URL value="@setup.css" />
     </stylesheets>
@@ -26,19 +26,19 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="pane_RestaurantName_1" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_RestaurantName_1" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="What is your Restaurant's Name?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                         <TextField fx:id="txt_restName" layoutX="226.0" layoutY="94.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                      <padding>
                         <Insets bottom="50.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane fx:id="pane_RestaurantAddress_2" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_RestaurantAddress_2" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="Where is your Main Restaurant's location?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                         <TextField fx:id="txt_restAddressStreet" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -47,17 +47,17 @@
                         <Label alignment="CENTER" layoutX="72.0" layoutY="207.0" styleClass="SetupWizard_Label" text="City" />
                         <TextField fx:id="txt_restAddressState" layoutX="217.0" layoutY="237.0" prefHeight="50.0" prefWidth="149.0" styleClass="SetupWizard_TextField" />
                         <Label alignment="CENTER" layoutX="239.0" layoutY="207.0" styleClass="SetupWizard_Label" text="State" />
-                        <TextField fx:id="txt_restAddressZip" layoutX="374.0" layoutY="237.0" prefHeight="50.0" prefWidth="137.0" styleClass="SetupWizard_TextField" />
+                        <TextField fx:id="txt_restAddressZip" layoutX="374.0" layoutY="237.0" prefHeight="50.0" prefWidth="176.0" styleClass="SetupWizard_TextField" AnchorPane.rightAnchor="50.0" />
                         <Label alignment="CENTER" layoutX="395.0" layoutY="207.0" styleClass="SetupWizard_Label" text="Zipcode" />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                      <padding>
                         <Insets bottom="50.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane fx:id="pane_RestaurantContact_3" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_RestaurantContact_3" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="Contact Information of Restaurant" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                         <TextField fx:id="txt_restContactEmail" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -66,13 +66,13 @@
                         <Label alignment="CENTER" layoutX="72.0" layoutY="201.0" styleClass="SetupWizard_Label" text="Phone" />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                      <padding>
                         <Insets bottom="50.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane fx:id="pane_RestaurantMoreInfo_4" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_RestaurantMoreInfo_4" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="More information about Restaurant" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                         <TextField fx:id="txt_restContactCountry" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -81,32 +81,32 @@
                         <Label alignment="CENTER" layoutX="72.0" layoutY="201.0" styleClass="SetupWizard_Label" text="How many table do you have?" />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                      <padding>
                         <Insets bottom="50.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane fx:id="pane_ManagerInforamtion_5" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_ManagerInforamtion_5" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="Manager Information" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-                        <TextField fx:id="txt_ManagerFirstname" layoutX="50.0" layoutY="140.0" prefHeight="50.0" prefWidth="225.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="285.0" />
+                        <TextField fx:id="txt_ManagerFirstname" layoutX="50.0" layoutY="140.0" prefHeight="50.0" prefWidth="240.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" />
                         <Label alignment="CENTER" layoutX="72.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Firstname" />
+                        <TextField fx:id="txt_ManagerLastname" layoutX="291.0" layoutY="140.0" prefHeight="50.0" prefWidth="240.0" styleClass="SetupWizard_TextField" AnchorPane.rightAnchor="50.0" />
+                        <Label alignment="CENTER" layoutX="313.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Lastname" />
                         <TextField fx:id="txt_ManagerEmail" layoutX="50.0" layoutY="231.0" prefHeight="50.0" prefWidth="460.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                         <Label alignment="CENTER" layoutX="72.0" layoutY="201.0" styleClass="SetupWizard_Label" text="Email" />
-                        <TextField fx:id="txt_ManagerLastname" layoutX="291.0" layoutY="140.0" prefHeight="50.0" prefWidth="225.0" styleClass="SetupWizard_TextField" AnchorPane.rightAnchor="50.0" />
-                        <Label alignment="CENTER" layoutX="313.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Lastname" />
-                        <TextField fx:id="txt_ManagerPhone" layoutX="50.0" layoutY="328.0" prefHeight="50.0" prefWidth="460.0" styleClass="SetupWizard_TextField" />
+                        <TextField fx:id="txt_ManagerPhone" layoutX="50.0" layoutY="328.0" prefHeight="50.0" prefWidth="460.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                         <Label alignment="CENTER" layoutX="72.0" layoutY="298.0" styleClass="SetupWizard_Label" text="Phone " />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                      <padding>
                         <Insets bottom="50.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane fx:id="pane_ManagerAccount_6" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="pane_ManagerAccount_6" layoutX="30.0" layoutY="10.0" prefWidth="200.0" styleClass="SetupWizard_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label alignment="CENTER" styleClass="SetupWizard_Label" text="Manager Account" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                         <TextField fx:id="txt_ManagerUsername" layoutX="50.0" layoutY="140.0" prefHeight="50.0" prefWidth="225.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -121,7 +121,7 @@
                         <PasswordField fx:id="txt_ManagerConfirmPin" layoutX="54.0" layoutY="517.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                      </children>
                      <effect>
-                        <DropShadow />
+                        <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </AnchorPane>
                </children>
@@ -140,6 +140,7 @@
                         <DropShadow height="10.0" radius="4.5" width="10.0" />
                      </effect>
                   </Button>
+                  <Label fx:id="lbl_page" alignment="CENTER" layoutX="86.0" layoutY="20.0" styleClass="SetupWizard_Title" text="1/6" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
                </children>
             </AnchorPane>
          </bottom>

@@ -24,7 +24,7 @@ public class RestaurantManagement extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("InitialSettup/Setup.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("InitialSetup/Setup.fxml"));
         
         Scene scene = new Scene(root);
         
