@@ -1,0 +1,41 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+}
+.SetupWizard{
+    -fx-background-color: #77daff;
+}
+.SetupWizard_Title{
+    -fx-text-fill: #234a58;
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    
+}
+.SetupWizard_Label{
+    -fx-text-fill: #234a58;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    
+}
+.SetupWizard_TextField{
+    -fx-background-color: #c6efff;
+    -fx-background-radius: 25;
+    -fx-border-color: #234a58;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-radius: 25;
+    
+}
+.SetupWizard_Button{
+    -fx-background-color: #17313b;
+    -fx-background-radius: 30;
+    -fx-text-fill: #c6efff;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+.SetupWizard_container{
+    -fx-background-color: #77daff;
+    -fx-background-radius: 10;
+}
