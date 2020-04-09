@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/*
+/* Project Start in: April 8, 2020
 * Description: This application will help manage a restaurant with many functions
 *
 */
