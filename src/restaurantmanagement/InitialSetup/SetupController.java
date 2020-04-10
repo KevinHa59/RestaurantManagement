@@ -13,6 +13,8 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -21,8 +23,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import org.controlsfx.control.textfield.TextFields;
+import restaurantmanagement.DatabaseConnection;
 import restaurantmanagement.mylibs.Transition;
 import restaurantmanagement.mylibs.Validation;
+
 
 /**
  * FXML Controller class
@@ -31,6 +36,8 @@ import restaurantmanagement.mylibs.Validation;
  */
 public class SetupController implements Initializable {
 
+    DatabaseConnection database;
+    
     @FXML
     private AnchorPane pane_RestaurantName_1;
     @FXML
@@ -113,17 +120,40 @@ public class SetupController implements Initializable {
     
     Transition trans;
     Validation val;
+    @FXML
+    private Button btn_next;
+    @FXML
+    private CheckBox cbx_notFirstRestaurant;
+    @FXML
+    private AnchorPane pane_notFirstRestaurant;
+    @FXML
+    private TextField txt_restName_FirstCode;
     
-    
+    ArrayList<String> RestName_list;
+    @FXML
+    private TextField txt_restSubName;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        database = new DatabaseConnection();
         trans = new Transition();
         val = new Validation();
         PaneSetup();
         trans.TransitionSetup();
         trans.TransitionSetWidth(460);
         
+        RestName_list = new ArrayList<>();
+        RestName_list.add("Pho And & Sushi Bar");
+        RestName_list.add("Pho Dung");
+        RestName_list.add("Pho Danh");
+        RestName_list.add("Pho Dalat");
+        RestName_list.add("Bun Bo Hue Duc Chuong");
+        RestName_list.add("Com Tam 9");
+        RestName_list.add("Com Tam Thuan Kieu");
+        RestName_list.add("Pho 49");
+        
+        TextFields.bindAutoCompletion(txt_restName, RestName_list);
         
     }    
 
@@ -150,7 +180,12 @@ public class SetupController implements Initializable {
     
     // Final Review
     void Review(){
-        lbl_restName.setText(txt_restName.getText());
+        String ResName = txt_restName.getText();
+        if(!txt_restSubName.getText().equals("")){
+            ResName += " - " + txt_restSubName.getText();
+        }
+        
+        lbl_restName.setText(ResName);
         lbl_restAddress.setText(txt_restAddressStreet.getText() + ", " + txt_restAddressCity.getText()+", " + txt_restAddressState.getText() + " " + txt_restAddressZip.getText());
         lbl_restEmail.setText(txt_restContactEmail.getText());
         lbl_restPhone.setText(PhoneFormat(txt_restContactPhone.getText()));
@@ -195,18 +230,29 @@ public class SetupController implements Initializable {
     @FXML
     private void OnNextClicked(MouseEvent event) {
         //
-        if(trans.PaneID < (trans.pane_list.size()-2)){
+        if(trans.PaneID < (trans.pane_list.size()-3)){
             trans.PanelTransitionNextSlide();
             trans.PanelTransitionPageUpdate(lbl_page);
             
-        }else{
+            
+        }else if(trans.PaneID < (trans.pane_list.size()-2)){
+            trans.PanelTransitionNextSlide();
+            trans.PanelTransitionPageUpdate(lbl_page);
+            btn_next.setText("Review");
+            
+        }else if(trans.PaneID < (trans.pane_list.size()-1)){
             
             ValidationProcess();
             if(val.ValidationCheck() == true){
+                btn_next.setText("Finish");
                 trans.PanelTransitionNextSlide();
                 trans.PanelTransitionPageUpdate(lbl_page);
                 Review();
             }
+        }else {
+            database.AddNewRestaurant(txt_restName.getText(), txt_restSubName.getText(), txt_restAddressStreet.getText(), txt_restAddressCity.getText(), txt_restAddressState.getText(), txt_restAddressZip.getText(), txt_restContactEmail.getText(), txt_restContactPhone.getText(), txt_restContactTable.getText(), "1");
+            database.AddManager(txt_ManagerUsername.getText(), txt_ManagerPassword.getText(), txt_ManagerFirstname.getText(), txt_ManagerLastname.getText(), txt_ManagerEmail.getText(), txt_ManagerPhone.getText(), txt_ManagerPin.getText());
+            ((Node)event.getSource()).getScene().getWindow().hide();
         }
     }
 
@@ -214,11 +260,26 @@ public class SetupController implements Initializable {
     private void OnBackClicked(MouseEvent event) {
         trans.PanelTransitionBackSlide();
         trans.PanelTransitionPageUpdate(lbl_page);
+        
+        if(trans.PaneID < (trans.pane_list.size()-2)){
+            btn_next.setText("Next");
+        }else{
+            btn_next.setText("Review");
+        }
     }
 
     @FXML
     private void OnExitClicked(MouseEvent event) {
         ((Node)event.getSource()).getScene().getWindow().hide();
+    }
+
+    @FXML
+    private void OnNotFirstRestCbxClicked(MouseEvent event) {
+        if(cbx_notFirstRestaurant.isSelected()){
+            pane_notFirstRestaurant.setVisible(true);
+        }else{
+            pane_notFirstRestaurant.setVisible(false);
+        }
     }
     
 }
