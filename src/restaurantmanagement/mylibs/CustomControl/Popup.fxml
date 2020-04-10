@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="restaurantmanagement.mylibs.CustomControl.PopupController">
+   <children>
+      <BorderPane layoutX="9.0" layoutY="9.0" styleClass="mainFxmlClass" stylesheets="@popup.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
+         <top>
+            <AnchorPane prefHeight="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lbl_title" alignment="CENTER" styleClass="Popup_Title" stylesheets="@popup.css" text="Error" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Separator prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <VBox fx:id="Vbox_messageContainer" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="40.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_close" mnemonicParsing="false" onMouseClicked="#OnCloseClicked" styleClass="Popup_Button" stylesheets="@popup.css" text="Close" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </bottom>
+         <effect>
+            <DropShadow />
+         </effect>
+      </BorderPane>
+   </children>
+</AnchorPane>

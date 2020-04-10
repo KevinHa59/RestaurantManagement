@@ -20,7 +20,7 @@ import javafx.util.Duration;
 public class Transition {
     public ArrayList<AnchorPane> pane_list = new ArrayList<>();
     ArrayList<Label> title_list = new ArrayList<>();
-    int PaneID = 0;
+    public int PaneID = 0;
     double Width = 0;
     
     public void TransitionAddPane(AnchorPane pane){

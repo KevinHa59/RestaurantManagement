@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import restaurantmanagement.mylibs.Transition;
+import restaurantmanagement.mylibs.Validation;
 
 /**
  * FXML Controller class
@@ -86,7 +87,7 @@ public class SetupController implements Initializable {
      * Initializes the controller class.
      */
     
-    Transition trans;
+    
     @FXML
     private VBox VBox_TitlePage;
     @FXML
@@ -110,11 +111,15 @@ public class SetupController implements Initializable {
     @FXML
     private AnchorPane pane_Review;
     
+    Transition trans;
+    Validation val;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         trans = new Transition();
+        val = new Validation();
         PaneSetup();
         trans.TransitionSetup();
         trans.TransitionSetWidth(460);
@@ -163,11 +168,46 @@ public class SetupController implements Initializable {
         }
         return _phone;
     }
+    
+    // Validate Process
+    void ValidationProcess(){
+        val.ValidationEmpty(txt_restName, "Restaurant's Name");
+        val.ValidationEmpty(txt_restAddressStreet, "Restaurant's Street");
+        val.ValidationEmpty(txt_restAddressCity, "Restaurant's City");
+        val.ValidationEmpty(txt_restAddressState, "Restaurant's State");
+        val.ValidationZipcode(txt_restAddressZip, "Restaurant's Zip");
+        val.ValidationEmail(txt_restContactEmail, "Restaurant's Email");
+        val.ValidationPhone(txt_restContactPhone, "Restaurant's Phone");
+        val.ValidationEmpty(txt_restContactCountry, "Food's Country");
+        val.ValidationNumber(txt_restContactTable, "Quantity of Table");
+        val.ValidationEmpty(txt_ManagerFirstname, "Manager's Firstname");
+        val.ValidationEmpty(txt_ManagerLastname, "Manager's Lastname");
+        val.ValidationEmail(txt_ManagerEmail, "Manager's Email");
+        val.ValidationPhone(txt_ManagerPhone, "Manager's Phone");
+        val.ValidationEmpty(txt_ManagerUsername, "Manager's Username");
+        val.ValidationEmpty(txt_ManagerPassword, "Manager's Password");
+        val.ValidationMatch(txt_ManagerPassword, txt_ManagerConfirmPassword, "Manager's Password");
+        val.ValidationPin(txt_ManagerPin, "Manager's Pin Number");
+        val.ValidationMatch(txt_ManagerPin, txt_ManagerConfirmPin, "Manager's Pin Number");
+    }
+    
+    
     @FXML
     private void OnNextClicked(MouseEvent event) {
-        trans.PanelTransitionNextSlide();
-        trans.PanelTransitionPageUpdate(lbl_page);
-        Review();
+        //
+        if(trans.PaneID < (trans.pane_list.size()-2)){
+            trans.PanelTransitionNextSlide();
+            trans.PanelTransitionPageUpdate(lbl_page);
+            
+        }else{
+            
+            ValidationProcess();
+            if(val.ValidationCheck() == true){
+                trans.PanelTransitionNextSlide();
+                trans.PanelTransitionPageUpdate(lbl_page);
+                Review();
+            }
+        }
     }
 
     @FXML
