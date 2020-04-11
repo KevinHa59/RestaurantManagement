@@ -29,6 +29,11 @@
     -fx-font-size: 17;
     
 }
+.SetupWizard_Label_Annouce{
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    
+}
 .SetupWizard_Label_Review{
     -fx-text-fill: #cc0033;
     -fx-font-weight: bold;
@@ -58,6 +63,13 @@
     -fx-background-radius: 30;
     -fx-text-fill: #ffffff;
     -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+.SetupWizard_Button_Normal{
+    -fx-background-color: #cc0033;
+    -fx-background-radius: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
     -fx-font-weight: bold;
 }
 .SetupWizard_Button_Exit{

@@ -7,6 +7,7 @@ package restaurantmanagement;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,35 @@ public class DatabaseConnection {
         
         return con;
     }
+    // Check FirstTime Run Software
+    public boolean FirstTimeRunSoftware(){
+        boolean firstTime = true;
+        
+        Connection con = getConnection();
+        
+        String SQL = "SELECT COUNT(*) FROM restaurantinformation";
+        
+        Statement statement = null;
+        
+        try {
+            statement = con.createStatement();
+            
+            ResultSet rs = statement.executeQuery(SQL);
+            while(rs.next()){
+                System.out.println("Count: " + rs.getInt("COUNT(*)"));
+                if(rs.getInt("COUNT(*)") > 0){
+                    firstTime = false;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        return firstTime;
+    }
+    
     
     // Insert Initial Setup Restaurant Information
     public void AddNewRestaurant(String name, String subname, String address_street, String address_city, String address_state, String address_zipcode, String email, String phone, String table_quantity, String main_location ){

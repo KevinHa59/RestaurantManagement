@@ -23,10 +23,18 @@ import javafx.stage.StageStyle;
  * @author KevinHa
  */
 public class RestaurantManagement extends Application {
+    DatabaseConnection con;
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("InitialSetup/Setup.fxml"));
+        con = new DatabaseConnection();
+        
+        String Scene = "Login/Login.fxml";
+        if(con.FirstTimeRunSoftware() == true){
+            Scene = "InitialSetup/Setup.fxml";
+        }
+        
+        Parent root = FXMLLoader.load(getClass().getResource(Scene));
         
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

@@ -132,6 +132,10 @@ public class SetupController implements Initializable {
     ArrayList<String> RestName_list;
     @FXML
     private TextField txt_restSubName;
+    @FXML
+    private Button btn_next1;
+    @FXML
+    private AnchorPane pane_button;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -166,6 +170,10 @@ public class SetupController implements Initializable {
         trans.TransitionAddPane(pane_ManagerInforamtion_5);
         trans.TransitionAddPane(pane_ManagerAccount_6);
         trans.TransitionAddPane(pane_Review);
+        
+        for(int i = 0 ; i< trans.pane_list.size();i++){
+            trans.pane_list.get(i).setVisible(true);
+        }
         
         trans.TransitionAddTitlePage("Restaurant Name");
         trans.TransitionAddTitlePage("Restaurant Address");
@@ -277,8 +285,10 @@ public class SetupController implements Initializable {
     private void OnNotFirstRestCbxClicked(MouseEvent event) {
         if(cbx_notFirstRestaurant.isSelected()){
             pane_notFirstRestaurant.setVisible(true);
+            pane_button.setVisible(false);
         }else{
             pane_notFirstRestaurant.setVisible(false);
+            pane_button.setVisible(true);
         }
     }
     

@@ -1,0 +1,87 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.Label_header{
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    
+}
+.LeftPane {
+    -fx-background-color: #cc0033;
+    
+}
+.CenterPane {
+    -fx-background-color: #ffffff;
+    
+}
+.RightPane {
+    -fx-background-color: #cc0033;
+    
+}
+.RightPane_List{
+    -fx-background-color: #730707;
+    
+}
+.Button_LeftPane{
+    -fx-background-color: #cc0033;
+    -fx-background-radius: 0;
+    -fx-font-size: 20;
+    -fx-text-fill: #ffffff; 
+}
+.Button_LeftPane:hover{
+    -fx-background-color: #ff9999;
+    -fx-background-radius: 0 10 10 0;
+}
+.Button_LeftPane:pressed{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0 10 10 0;
+}
+.Button_LeftPane:focused{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0 10 10 0;
+    -fx-text-fill: #cc0033;
+    -fx-font-weight: bold;
+    
+}
+
+.Button_Number{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50;
+    -fx-border-color: #cc0033;
+    -fx-border-radius: 50;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-text-fill: #cc0033;
+    
+}
+.Button_Number:pressed{
+    -fx-background-color: #ff9999;
+ 
+}
+.Button_Exit{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 1 0 0 0;
+}
+
+.Textbox_Label{
+    -fx-text-fill: #cc0033;
+    -fx-font-weight: bold;
+    -fx-font-size: 17;
+    
+}
+.Textbox_TextField{
+    -fx-background-color: transparent;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 20;
+    -fx-alignment: CENTER;
+}

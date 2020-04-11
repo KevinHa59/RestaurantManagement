@@ -177,4 +177,22 @@ public class Transition {
         // Hight Light
         TransitionAddTitlePageHighlight(PaneID);
     }
+    
+    // Fade In & Out
+    public void FadeInOut(AnchorPane in, ArrayList<AnchorPane> out){
+        //Fade out
+        for(int i = 0; i < out.size();i++){
+            out.get(i).setVisible(false);
+        }
+        //Fade in
+        FadeTransition ftin = new FadeTransition();
+        ftin.setDuration(Duration.seconds(0.5));
+        in.setOpacity(0);
+        in.setVisible(true);
+        ftin.setNode(in);
+        ftin.setToValue(1);
+        ftin.play();
+        
+    }
+
 }
