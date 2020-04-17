@@ -29,9 +29,10 @@ public class RestaurantManagement extends Application {
     public void start(Stage stage) throws Exception {
         con = new DatabaseConnection();
         
-        String Scene = "Login/Login.fxml";
+        String Scene = "Manager/Manager_Main.fxml";
         if(con.FirstTimeRunSoftware() == true){
             Scene = "InitialSetup/Setup.fxml";
+
         }
         
         Parent root = FXMLLoader.load(getClass().getResource(Scene));

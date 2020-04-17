@@ -18,6 +18,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -136,10 +137,14 @@ public class SetupController implements Initializable {
     private Button btn_next1;
     @FXML
     private AnchorPane pane_button;
+    
+    BoxBlur blur;
+    @FXML
+    private AnchorPane Main;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        blur = new BoxBlur(3, 3, 3);
         database = new DatabaseConnection();
         trans = new Transition();
         val = new Validation();
@@ -239,21 +244,21 @@ public class SetupController implements Initializable {
     private void OnNextClicked(MouseEvent event) {
         //
         if(trans.PaneID < (trans.pane_list.size()-3)){
-            trans.PanelTransitionNextSlide();
+            trans.PanelTransitionNextSlideFade();
             trans.PanelTransitionPageUpdate(lbl_page);
             
             
         }else if(trans.PaneID < (trans.pane_list.size()-2)){
-            trans.PanelTransitionNextSlide();
+            trans.PanelTransitionNextSlideFade();
             trans.PanelTransitionPageUpdate(lbl_page);
             btn_next.setText("Review");
             
         }else if(trans.PaneID < (trans.pane_list.size()-1)){
             
             ValidationProcess();
-            if(val.ValidationCheck() == true){
+            if(val.ValidationCheck(root) == true){
                 btn_next.setText("Finish");
-                trans.PanelTransitionNextSlide();
+                trans.PanelTransitionNextSlideFade();
                 trans.PanelTransitionPageUpdate(lbl_page);
                 Review();
             }
@@ -266,7 +271,7 @@ public class SetupController implements Initializable {
 
     @FXML
     private void OnBackClicked(MouseEvent event) {
-        trans.PanelTransitionBackSlide();
+        trans.PanelTransitionBackSlideFade();
         trans.PanelTransitionPageUpdate(lbl_page);
         
         if(trans.PaneID < (trans.pane_list.size()-2)){
@@ -278,7 +283,7 @@ public class SetupController implements Initializable {
 
     @FXML
     private void OnExitClicked(MouseEvent event) {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        trans.FadeOutExit(root,event);
     }
 
     @FXML

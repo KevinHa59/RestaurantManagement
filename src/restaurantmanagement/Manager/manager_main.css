@@ -1,0 +1,260 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.Mainroot{
+    -fx-background-color: #1d0606;
+    -fx-background-image: url(../../images/BG.png);
+    -fx-background-size: cover;
+    -fx-border-color: #666666;
+    
+    
+}
+.Label_Header{
+    -fx-background-color: rgba(80,80,80,0.6);
+    -fx-padding: 5 0 5 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-color: #666666
+    
+}
+.Textbox_Label{
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    
+}
+.TextField{
+    -fx-background-color: rgba(80,80,80,0.6);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 20;
+    -fx-alignment: CENTER;
+}
+.TextArea{
+    -fx-background-color: rgba(80,80,80,0.6);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+
+    -fx-font-size: 20;
+    -fx-alignment: CENTER;
+}
+.TextArea .content{
+    -fx-background-color: rgba(80,80,80,0.6);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 20;
+    -fx-alignment: CENTER;
+}
+.Pane_left{
+    -fx-background-color: rgba(0,0,0,0.3);
+    -fx-border-color: #666666;
+    -fx-border-width: 0 1 0 0;
+    
+}
+.Pane_top{
+    -fx-background-color: rgba(100,100,100,0.4);
+    -fx-border-color: #666666;
+    -fx-border-width: 0 0 1 0;
+    
+}
+.Menu_Button_Text{
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    
+}
+.Menu_button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 5;
+    -fx-font-size: 20;
+    -fx-text-fill: #999999; 
+}
+.Menu_button:hover{
+    -fx-background-color: rgba(200,200,200,0.3);
+    
+}
+.Menu_button:pressed{
+    -fx-background-color: rgba(200,200,200,0.3);
+    
+}
+.Menu_button:focused{
+    -fx-background-color: rgba(150,150,150,0.1);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #00ccff;
+    -fx-border-width: 0 0 0 5;
+    
+}
+
+.Button_Exit{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 5 0;
+}
+.Button_Exit:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25;
+    -fx-border-color: #00ccff;
+    -fx-border-width: 0 0 5 0;
+}
+.Button_Back:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 40;
+    -fx-border-color: #666666;
+    -fx-border-width: 1;
+}
+.Button_Back:hover{
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-background-radius: 40;
+    -fx-border-color: #666666;
+    -fx-border-radius: 40;
+    -fx-border-width: 1;
+}
+.scroll-pane{
+   -fx-background-color: transparent;
+
+}
+.scroll-pane > .viewport  {
+    -fx-background-color: transparent;
+}
+.List_Header{
+    -fx-background-color: rgba(0,0,0,0.5);
+    
+    
+}
+.List_Header_label{
+    -fx-padding: 4 0 4 5;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-color: #666666
+    
+}
+.List_label{
+    -fx-padding: 2 0 2 5;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-color: #666666
+    
+}
+.List_Unit{
+    -fx-background-color: rgba(50,50,50,0.7);
+    
+    
+}
+.List_Unit:hover{
+    -fx-background-color: rgba(100,100,100,0.7);
+    
+}
+.Emp_list{
+    -fx-background-color: transparent;
+    -fx-border-color: #666666;
+    -fx-border-width: 1;
+}
+.Emp_detail_center{
+    -fx-border-color: #666666;
+    -fx-border-width: 1;
+}
+.Panel_Control{
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-border-color: #666666;
+    -fx-border-width: 1 0 0 0;
+    
+}
+.Button_Action{
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-border-color: #666666;
+    -fx-text-fill: #ffffff;
+}
+.Button_Action:hover{
+    -fx-background-color: rgba(50,50,50,0.5);
+}
+.Button_Action:pressed{
+    -fx-background-color: rgba(100,100,100,0.5);
+}
+.Button_Label{
+    -fx-background-color: rgba(100,100,100,0.5);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    
+}
+.New_Employee_Pane{
+    -fx-border-color: #666666;
+    -fx-background-color: rgba(0,0,0,0.1);
+    
+}
+.Button_Main{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+}
+.Button_Main:hover{
+    -fx-background-color: rgba(100,100,100,0.5);
+ 
+}
+.Button_Main:pressed{
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-border-color: #666666;
+}
+
+.Position_Container{
+    -fx-background-color: rgba(50,50,50,0.7);
+    -fx-border-color: #666666;
+    
+}
+.Position_Title{
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 0 0 10;
+    
+}
+.Position_Description{
+    -fx-font-size: 20;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 0 0 30;
+    
+}
+.Position_Wage{
+    -fx-font-size: 20;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 20 0 0 30;
+    
+}
+.Train_Wage{
+    -fx-font-size: 20;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10 0 10 30;
+    
+}
+.Emp_List_Title{
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #666666;
+    
+}
+.List_Title{
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    
+}

@@ -11,11 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import restaurantmanagement.mylibs.List;
 
 /**
  *
@@ -111,5 +113,49 @@ public class DatabaseConnection {
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    // Position - Add New 
+    public void AddNewPosition(String Title, String Desc, String MainWage, String TrainWage){
+        Connection con = getConnection();
+        
+        String SQL = "INSERT INTO position (name, description, wage, trainwage) VALUES ('"+Title+"','"+Desc+"','"+MainWage+"','"+TrainWage+"')";
+        
+        Statement statement = null;
+        
+        try {
+            statement = con.createStatement();
+            statement.executeUpdate(SQL);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    // Position - Load All
+    public ArrayList<ArrayList<String>> LoadAllPosition(){
+        List clist = new List();
+        ArrayList<ArrayList<String>> list = clist.ArrayList_C(5);
+        
+        Connection con = getConnection();
+        
+        String SQL = "SELECT * FROM position ORDER BY name ASC";
+        
+        Statement statement = null;
+        
+        try {
+            statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(SQL);
+            
+            while (rs.next()){
+                list.get(0).add(rs.getString(1)); // id
+                list.get(1).add(rs.getString(2)); // title
+                list.get(2).add(rs.getString(3)); // desc
+                list.get(3).add(rs.getString(4)); // mainwage
+                list.get(4).add(rs.getString(5)); // trainwage
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Size: " + list.get(0).size());
+        return list;
     }
 }

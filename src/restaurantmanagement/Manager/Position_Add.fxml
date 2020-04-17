@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="PositionParent" fx:id="NewPotitionParent" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: transparent;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="restaurantmanagement.Manager.Position_AddController">
+    <stylesheets>
+        <URL value="@manager_main.css" />
+    </stylesheets>
+
+    <children>
+      <AnchorPane fx:id="pane_ManagerInforamtion_5" layoutX="40.0" layoutY="20.0" styleClass="New_Employee_Pane" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label alignment="CENTER" styleClass="Label_Header" text="New Position" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+            <TextField fx:id="txt_Title" layoutX="40.0" layoutY="140.0" prefHeight="50.0" prefWidth="230.0" styleClass="TextField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <Label alignment="CENTER" layoutX="40.0" layoutY="110.0" styleClass="Textbox_Label" text="Position Title" AnchorPane.leftAnchor="40.0" />
+            <TextArea fx:id="txt_Desc" layoutX="41.0" layoutY="244.0" prefHeight="200.0" prefWidth="200.0" styleClass="TextArea" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <TextField fx:id="txt_TrainWage" layoutX="43.0" layoutY="497.0" prefHeight="50.0" prefWidth="220.0" styleClass="TextField" AnchorPane.leftAnchor="40.0" />
+            <Label alignment="CENTER" layoutX="41.0" layoutY="467.0" styleClass="Textbox_Label" text="Training Wage / Hour" AnchorPane.leftAnchor="41.0" />
+            <Button layoutX="248.0" layoutY="494.0" mnemonicParsing="false" onMouseClicked="#OnAddClicked" prefHeight="56.0" prefWidth="300.0" styleClass="Button_Main" text="Add" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Button layoutX="399.0" layoutY="494.0" mnemonicParsing="false" onMouseClicked="#OnExitClicked" prefHeight="56.0" prefWidth="300.0" styleClass="Button_Main" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="41.0" layoutY="208.0" styleClass="Textbox_Label" text="Description" />
+            <TextField fx:id="txt_MainWage" layoutX="351.0" layoutY="497.0" prefHeight="50.0" prefWidth="220.0" styleClass="TextField" AnchorPane.rightAnchor="40.0" />
+            <Label alignment="CENTER" layoutX="329.0" layoutY="467.0" styleClass="Textbox_Label" text="Main Wage / Hour" />
+         </children>
+         <padding>
+         </padding>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

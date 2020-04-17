@@ -3,26 +3,42 @@
  */
 
 .mainFxmlClass {
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
+    -fx-border-color: #666666;
 }
 
 .Popup_Title{
-    -fx-text-fill: #cc0033;
+    
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 20;
     
 }
 .Popup_Message{
-    -fx-text-fill: #cc0033;
+    -fx-text-fill: #ffffff;
     -fx-font-size: 15;
     
 }
 .Popup_Button{
-    -fx-background-color: transparent;
-    -fx-text-fill: #cc0033;
-    -fx-font-weight: bold;
+    -fx-background-color: rgba(0,0,0,0.5);
+    -fx-text-fill: #ffffff;
     -fx-font-size: 20;
     -fx-border-width: 1 0 0 0;
-    -fx-border-color: #cccccc;
+    -fx-border-color: transparent;
+}
+.Popup_Button:hover{
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #666666;
+}
+.Popup_Top_Pane{
+    -fx-background-color: rgba(0,0,0,0.7);
+    
+}
+.Popup_Center_Pane{
+    -fx-background-color: rgba(0,0,0,0.4);
+    
+}
+.Popup_Bottom_Pane{
+    -fx-background-color: rgba(0,0,0,0.7);
     
 }

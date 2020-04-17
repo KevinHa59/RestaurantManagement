@@ -8,12 +8,16 @@ package restaurantmanagement.Login;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import restaurantmanagement.mylibs.Transition;
 
 /**
@@ -32,6 +36,10 @@ public class LoginController implements Initializable {
     private AnchorPane pane_managerLogin;
 
     ArrayList<AnchorPane> pane_list;
+    @FXML
+    private BorderPane root;
+    @FXML
+    private AnchorPane MainRoot;
     /**
      * Initializes the controller class.
      */
@@ -39,6 +47,8 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         trans = new Transition();
+        trans.ZoomIn(MainRoot);
+        trans.FadeIn(MainRoot);
         PaneListSetup();
             
     }   
@@ -68,7 +78,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void OnExitClicked(MouseEvent event) {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        trans.FadeOutExit(MainRoot, event);
     }
     
 }

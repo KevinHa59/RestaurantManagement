@@ -6,9 +6,8 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -18,11 +17,11 @@
         <URL value="@setup.css" />
     </stylesheets>
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="460.0" styleClass="SetupWizard_container" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="Main" prefHeight="200.0" prefWidth="460.0" styleClass="SetupWizard_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="pane_RestaurantName_1" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <AnchorPane fx:id="pane_RestaurantName_1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="What is your Restaurant's Name?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="What is your Restaurant's Name?" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_restName" layoutX="226.0" layoutY="94.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <TextField fx:id="txt_restSubName" layoutX="50.0" layoutY="180.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="180.0" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="154.0" styleClass="SetupWizard_Label" text="Sub Name (Optional)" AnchorPane.topAnchor="154.0" />
@@ -32,7 +31,10 @@
                         <TextField fx:id="txt_restName_FirstCode" layoutY="30.0" prefHeight="50.0" prefWidth="155.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
                         <Label alignment="CENTER" layoutY="4.0" styleClass="SetupWizard_Label" text="What is your first Restaurant's Code?" />
                         <Label alignment="CENTER" layoutX="8.0" layoutY="80.0" prefWidth="340.0" styleClass="SetupWizard_Note" text="This will sync data of your first restaurant with this one automatically." wrapText="true" />
-                        <Button fx:id="btn_next1" layoutX="253.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#OnNextClicked" styleClass="SetupWizard_Button_Normal" text="Check" />
+                        <Button fx:id="btn_next1" layoutX="251.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#OnNextClicked" styleClass="SetupWizard_Button" text="Verify">
+                           <effect>
+                              <Bloom />
+                           </effect></Button>
                         <Label alignment="CENTER" layoutX="166.0" layoutY="55.0" prefHeight="21.0" prefWidth="85.0" styleClass="SetupWizard_Label_Annouce" textFill="#26cd0c" wrapText="true" />
                      </children>
                   </AnchorPane>
@@ -42,7 +44,6 @@
                      </font>
                   </Label>
                   <Label layoutX="50.0" layoutY="230.0" prefWidth="340.0" styleClass="SetupWizard_Note" text="Example Display: Restaurant Name - Sub Name" wrapText="true" />
-                  <Separator layoutX="7.0" layoutY="278.0" prefWidth="200.0" style="-fx-background-color: #cc0033;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="290.0" />
                </children>
                <padding>
                   <Insets bottom="50.0" />
@@ -50,7 +51,7 @@
             </AnchorPane>
             <AnchorPane fx:id="pane_RestaurantAddress_2" layoutX="30.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Where is your Main Restaurant's location?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Where is your Main Restaurant's location?" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_restAddressStreet" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <Label alignment="CENTER" layoutX="54.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Street Address" />
                   <TextField fx:id="txt_restAddressCity" layoutX="50.0" layoutY="237.0" prefHeight="50.0" prefWidth="122.0" styleClass="SetupWizard_TextField" />
@@ -66,7 +67,7 @@
             </AnchorPane>
             <AnchorPane fx:id="pane_RestaurantContact_3" layoutX="30.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Contact Information of Restaurant" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Contact Information of Restaurant" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_restContactEmail" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Email" />
                   <TextField fx:id="txt_restContactPhone" layoutX="50.0" layoutY="231.0" prefHeight="50.0" prefWidth="460.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -78,7 +79,7 @@
             </AnchorPane>
             <AnchorPane fx:id="pane_RestaurantMoreInfo_4" layoutX="30.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="More information about Restaurant" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="More information about Restaurant" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_restContactCountry" layoutX="50.0" layoutY="140.0" prefHeight="50.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="110.0" styleClass="SetupWizard_Label" text="What Main country's food of your restaurant?" />
                   <TextField fx:id="txt_restContactTable" layoutX="50.0" layoutY="231.0" prefHeight="50.0" prefWidth="460.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -88,9 +89,9 @@
                   <Insets bottom="50.0" />
                </padding>
             </AnchorPane>
-            <AnchorPane fx:id="pane_ManagerInforamtion_5" layoutX="30.0" layoutY="10.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <AnchorPane fx:id="pane_ManagerInforamtion_5" layoutX="30.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Manager Information" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Manager Information" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_ManagerFirstname" layoutX="50.0" layoutY="140.0" prefHeight="50.0" prefWidth="167.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Firstname" />
                   <TextField fx:id="txt_ManagerLastname" layoutX="291.0" layoutY="140.0" prefHeight="50.0" prefWidth="167.0" styleClass="SetupWizard_TextField" AnchorPane.rightAnchor="50.0" />
@@ -106,7 +107,7 @@
             </AnchorPane>
             <AnchorPane fx:id="pane_ManagerAccount_6" layoutX="30.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Manager Account" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Manager Account" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
                   <TextField fx:id="txt_ManagerUsername" layoutX="50.0" layoutY="140.0" prefHeight="50.0" prefWidth="225.0" styleClass="SetupWizard_TextField" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="110.0" styleClass="SetupWizard_Label" text="Username" />
                   <Label alignment="CENTER" layoutX="50.0" layoutY="201.0" styleClass="SetupWizard_Label" text="Password" />
@@ -121,46 +122,55 @@
             </AnchorPane>
             <AnchorPane fx:id="pane_Review" layoutX="10.0" layoutY="61.0" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                <children>
-                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Review" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-                  <Label styleClass="SetupWizard_Label_Review" text="Restaurant's Name:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="100.0" />
-                  <Label layoutX="20.0" layoutY="153.0" styleClass="SetupWizard_Label_Review" text="Address:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0" />
-                  <Label layoutX="20.0" layoutY="218.0" styleClass="SetupWizard_Label_Review" text="Email:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0" />
-                  <Label layoutX="20.0" layoutY="243.0" styleClass="SetupWizard_Label_Review" text="Phone:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="250.0" />
-                  <Label layoutX="20.0" layoutY="268.0" styleClass="SetupWizard_Label_Review" text="Country's Food:" AnchorPane.topAnchor="300.0" />
-                  <Label layoutX="20.0" layoutY="293.0" styleClass="SetupWizard_Label_Review" text="Table Quantity:" AnchorPane.topAnchor="350.0" />
-                  <Separator prefWidth="200.0" style="-fx-background-color: #cc0033;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="440.0" />
-                  <Label layoutX="22.0" layoutY="338.0" styleClass="SetupWizard_Label_Review" text="Manager's Name" AnchorPane.topAnchor="450.0" />
-                  <Label layoutX="22.0" layoutY="363.0" styleClass="SetupWizard_Label_Review" text="Email:" AnchorPane.topAnchor="500.0" />
-                  <Label layoutX="22.0" layoutY="388.0" styleClass="SetupWizard_Label_Review" text="Phone:" AnchorPane.topAnchor="550.0" />
-                  <Label fx:id="lbl_restName" layoutX="177.0" layoutY="100.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" />
-                  <Label fx:id="lbl_restAddress" layoutX="307.0" layoutY="110.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="150.0" />
-                  <Label fx:id="lbl_restEmail" layoutX="175.0" layoutY="200.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0" />
-                  <Label fx:id="lbl_restPhone" layoutX="229.0" layoutY="238.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="250.0" />
-                  <Label fx:id="lbl_restCountryFood" layoutX="348.0" layoutY="300.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="300.0" />
-                  <Label fx:id="lbl_restTableQuan" layoutX="376.0" layoutY="350.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="350.0" />
-                  <Label fx:id="lbl_ManagerName" layoutX="417.0" layoutY="450.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="450.0" />
-                  <Label fx:id="lbl_ManagerEmail" layoutX="336.0" layoutY="460.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="500.0" />
-                  <Label fx:id="lbl_ManagerPhone" layoutX="300.0" layoutY="550.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="550.0" />
+                  <Label alignment="CENTER" styleClass="SetupWizard_Label_Header" text="Review" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
+                  <AnchorPane layoutX="20.0" layoutY="100.0" prefHeight="501.0" prefWidth="458.0" styleClass="SetupWizard_Label_Header" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="13.0" styleClass="SetupWizard_Label_Review" text="Restaurant's Name:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="63.0" styleClass="SetupWizard_Label_Review" text="Address:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="113.0" styleClass="SetupWizard_Label_Review" text="Email:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="163.0" styleClass="SetupWizard_Label_Review" text="Phone:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="213.0" styleClass="SetupWizard_Label_Review" text="Country's Food:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="263.0" styleClass="SetupWizard_Label_Review" text="Table Quantity:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="363.0" styleClass="SetupWizard_Label_Review" text="Manager's Name" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="413.0" styleClass="SetupWizard_Label_Review" text="Email:" AnchorPane.leftAnchor="19.0" />
+                        <Label layoutX="19.0" layoutY="463.0" styleClass="SetupWizard_Label_Review" text="Phone:" AnchorPane.leftAnchor="19.0" />
+                        <Label fx:id="lbl_restName" layoutX="437.0" layoutY="13.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_restAddress" layoutX="437.0" layoutY="63.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_restEmail" layoutX="437.0" layoutY="113.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_restPhone" layoutX="437.0" layoutY="163.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_restCountryFood" layoutX="437.0" layoutY="213.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_restTableQuan" layoutX="437.0" layoutY="263.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_ManagerName" layoutX="437.0" layoutY="363.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_ManagerEmail" layoutX="437.0" layoutY="413.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                        <Label fx:id="lbl_ManagerPhone" layoutX="437.0" layoutY="463.0" styleClass="SetupWizard_Label_Review_Answer" AnchorPane.rightAnchor="21.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <Label alignment="CENTER" styleClass="SetupWizard_Title" text="Initial Setup Wizard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Label alignment="CENTER" layoutX="10.0" layoutY="11.0" styleClass="SetupWizard_Label" text="Restaurant Management System" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
             <AnchorPane fx:id="pane_button" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Button fx:id="btn_next" mnemonicParsing="false" onMouseClicked="#OnNextClicked" styleClass="SetupWizard_Button" text="Next" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                  <Button layoutX="491.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#OnBackClicked" styleClass="SetupWizard_Button" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-                  <Label fx:id="lbl_page" alignment="CENTER" layoutX="86.0" layoutY="20.0" styleClass="SetupWizard_Title" text="1/6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
+                  <Button fx:id="btn_next" mnemonicParsing="false" onMouseClicked="#OnNextClicked" styleClass="SetupWizard_Button" text="Next" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+                     <effect>
+                        <Bloom />
+                     </effect></Button>
+                  <Button layoutX="491.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#OnBackClicked" prefHeight="50.0" styleClass="SetupWizard_Button" text="Back" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
+                     <effect>
+                        <Bloom />
+                     </effect></Button>
+                  <Label fx:id="lbl_page" alignment="CENTER" layoutX="86.0" layoutY="20.0" styleClass="SetupWizard_Title" text="1/6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0" />
                </children>
             </AnchorPane>
          </children>
-         <effect>
-            <DropShadow height="0.0" radius="4.75" />
-         </effect>
       </AnchorPane>
       <AnchorPane prefHeight="800.0" prefWidth="240.0" styleClass="SetupWizard_Left_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox fx:id="VBox_TitlePage" layoutY="114.0" style="-fx-border-width: 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Button layoutX="1.0" layoutY="774.0" mnemonicParsing="false" onMouseClicked="#OnExitClicked" styleClass="SetupWizard_Button_Exit" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button layoutX="1.0" layoutY="774.0" mnemonicParsing="false" onMouseClicked="#OnExitClicked" styleClass="SetupWizard_Button_Exit" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <effect>
+                  <Bloom />
+               </effect></Button>
          </children>
       </AnchorPane>
    </children>

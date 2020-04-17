@@ -7,8 +7,11 @@ package restaurantmanagement.mylibs;
 
 import java.util.ArrayList;
 import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -193,6 +196,61 @@ public class Transition {
         ftin.setToValue(1);
         ftin.play();
         
+    }
+    
+    public void FadeIn(AnchorPane in){
+        //Fade in
+        FadeTransition ftin = new FadeTransition();
+        ftin.setDuration(Duration.seconds(0.5));
+        in.setOpacity(0);
+        in.setVisible(true);
+        ftin.setNode(in);
+        ftin.setToValue(1);
+        ftin.play();
+        
+    }
+    
+    public void FadeOutExit(AnchorPane in, MouseEvent event){
+        //Fade in
+        FadeTransition ftin = new FadeTransition();
+        ftin.setDuration(Duration.seconds(0.3));
+        
+        in.setOpacity(1);
+        in.setVisible(true);
+        ftin.setNode(in);
+        ftin.setToValue(0);
+        ftin.play();
+        
+        ftin.setOnFinished(e -> ZoomFinish(event));
+        
+    }
+    // Zoom In & Out
+    public void ZoomIn(AnchorPane in){
+        ScaleTransition zin = new ScaleTransition();
+        zin.setDuration(Duration.seconds(0.2));
+        in.setScaleX(0);
+        in.setScaleY(0);
+        zin.setNode(in);
+        zin.setToX(1);
+        zin.setToY(1);
+        zin.play();
+
+    }
+    public void ZoomoutExit(AnchorPane out, MouseEvent event){
+        boolean finish = false;
+        ScaleTransition zout = new ScaleTransition();
+        zout.setDuration(Duration.seconds(0.2));
+        zout.setOnFinished(e -> ZoomFinish(event));
+        out.setScaleX(1);
+        out.setScaleY(1);
+        zout.setNode(out);
+        zout.setToX(0);
+        zout.setToY(0);
+        zout.play();
+ 
+    }
+    void ZoomFinish(MouseEvent event){
+        ((Node)event.getSource()).getScene().getWindow().hide();
     }
 
 }

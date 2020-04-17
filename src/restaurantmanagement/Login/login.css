@@ -2,86 +2,134 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.Mainroot {
+    -fx-background-image: url(../../images/BG.png);
+    -fx-border-color: #666666;
+    -fx-border-width: 1;
+}
+.Top_Pane{
+    
+}
+.Top_Pane_Label{
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-border-color:  #666666;
+    -fx-border-width: 0 0 0 0;
 }
 .Label_header{
+    -fx-background-color: rgba(0,0,0,0.3);
+    -fx-border-color: transparent;
     -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 20;
     
 }
 .LeftPane {
-    -fx-background-color: #cc0033;
+    -fx-background-color: rgba(0,0,0,0.5);
     
 }
 .CenterPane {
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
+    -fx-border-color: #666666;
+    -fx-border-width: 0 1 0 1;
     
 }
 .RightPane {
-    -fx-background-color: #cc0033;
+    -fx-background-color: rgba(0,0,0,0.5);
     
 }
 .RightPane_List{
-    -fx-background-color: #730707;
+    -fx-background-color: transparent;
+    
+}
+.Button_Login{
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25;
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+    
+}
+.Button_Login:hover{
+    -fx-border-color: #999999;
+    -fx-border-width: 1;
     
 }
 .Button_LeftPane{
-    -fx-background-color: #cc0033;
+    -fx-background-color: transparent;
     -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 5 0 0;
     -fx-font-size: 20;
-    -fx-text-fill: #ffffff; 
+    -fx-text-fill: #999999; 
 }
 .Button_LeftPane:hover{
-    -fx-background-color: #ff9999;
-    -fx-background-radius: 0 10 10 0;
+    -fx-background-color: rgba(200,200,200,0.3);
+
 }
 .Button_LeftPane:pressed{
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 0 10 10 0;
+    -fx-background-color: rgba(200,200,200,0.3);
 }
 .Button_LeftPane:focused{
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #cc0033;
-    -fx-font-weight: bold;
+    -fx-background-color: rgba(150,150,150,0.1);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #00ccff;
+    -fx-border-width: 0 5 0 0;
     
 }
 
 .Button_Number{
-    -fx-background-color: #ffffff;
+    -fx-background-color: rgba(0,0,0,0.5);
     -fx-background-radius: 50;
-    -fx-border-color: #cc0033;
+    -fx-border-color: transparent;
     -fx-border-radius: 50;
-    -fx-font-size: 30;
+    -fx-font-size: 45;
     -fx-font-weight: bold;
-    -fx-text-fill: #cc0033;
+    -fx-text-fill: #ffffff;
     
 }
 .Button_Number:pressed{
-    -fx-background-color: #ff9999;
+    -fx-background-color: rgba(150,150,150,0.5);
+    -fx-border-color: #999999;
  
 }
 .Button_Exit{
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(0, 0, 0, 0.5);
     -fx-text-fill: #ffffff;
-    -fx-font-size: 20;
-    -fx-font-weight: bold;
-    -fx-border-color: #ffffff;
+    -fx-font-size: 25;
+    -fx-border-color: transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.Button_Exit:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25;
+    -fx-border-color: #999999;
     -fx-border-width: 1 0 0 0;
 }
 
 .Textbox_Label{
-    -fx-text-fill: #cc0033;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
     -fx-font-size: 17;
     
 }
 .Textbox_TextField{
-    -fx-background-color: transparent;
-    -fx-border-color: #cc0033;
+    -fx-background-color: rgba(0,0,0,0.4);
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
     -fx-border-width: 0 0 1 0;
     -fx-font-size: 20;
     -fx-alignment: CENTER;
+}
+.scroll-pane{
+    -fx-background-color: transparent;
+    
+}
+.scroll-pane > .viewport{
+    -fx-background-color: transparent;
+    
 }

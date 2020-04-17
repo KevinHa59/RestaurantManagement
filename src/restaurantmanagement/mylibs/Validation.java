@@ -8,6 +8,8 @@ package restaurantmanagement.mylibs;
 import java.util.ArrayList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.AnchorPane;
 import restaurantmanagement.mylibs.CustomControl.PopupController;
 
 /**
@@ -27,7 +29,7 @@ public class Validation {
         String regex = "\\d+";
         String Message = "";
         if(!tf.getText().matches(regex)){
-            Message = fieldname + " contain number only - '12'";
+            Message = fieldname + " contain digit number only - '12'";
             validate_list.add(Message);
         } 
     }
@@ -35,7 +37,7 @@ public class Validation {
         String regex = "\\d+";
         String Message = "";
         if(tf.getText().length()!=4 || !tf.getText().matches(regex)){
-            Message = fieldname + " contain 4 number only - '1234'";
+            Message = fieldname + " contain 4 digit number - '1234'";
             validate_list.add(Message);
         } 
     }
@@ -43,7 +45,7 @@ public class Validation {
         String regex = "\\d+";
         String Message = "";
         if(tf.getText().length()!=5 || !tf.getText().matches(regex)){
-            Message = fieldname + " contain 5 number only - '12345'";
+            Message = fieldname + " contain 5 digit number - '12345'";
             validate_list.add(Message);
         } 
     }
@@ -51,7 +53,7 @@ public class Validation {
         String regex = "\\d+";
         String Message = "";
         if(tf.getText().length()!=10 || !tf.getText().matches(regex)){
-            Message = fieldname + " contain 10 number only - '1234567899'";
+            Message = fieldname + " contain 10 digit number - '1234567899'";
             validate_list.add(Message);
         } 
     }
@@ -72,20 +74,24 @@ public class Validation {
             validate_list.add(Message);
         } 
     }
-    public boolean ValidationCheck(){
+    public boolean ValidationCheck(AnchorPane Root){
+        
         boolean success = true;
         if(validate_list.size() > 0){
+            BoxBlur blur = new BoxBlur(5, 5, 5);
                 success = false;
-                ErrorPopup();
+                ErrorPopup(Root);
+                Root.setDisable(true);
+                Root.setEffect(blur);
         }
         validate_list.clear();
         return success;
     }
     
     // Error notification
-    void ErrorPopup(){
+    void ErrorPopup(AnchorPane Root){
         PopupController pc = new PopupController();
-        pc.Show(validate_list);
+        pc.Show(validate_list, Root);
         
     }
 }
